@@ -2,6 +2,10 @@
 
 An intelligent multi-agent platform designed to support modern facility operations through autonomous AI agents.
 
+## 🌐 Live Demo
+
+🔗 [View Live Project](https://preethi-facilityops-ai.vercel.app/)
+
 ## Week 1 Milestone – UI Prototype
 
 The Week 1 milestone focuses on designing and developing the initial frontend prototype of the Agentic FacilityOps AI Platform.
