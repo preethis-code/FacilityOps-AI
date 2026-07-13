@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic FacilityOps AI Platform | Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>FacilityOps AI</span>
+        </div>
+      </div>
+
+      <nav style="flex: 1;">
+        <ul class="sidebar-menu">
+          <li class="menu-label">Main</li>
+          <li class="sidebar-menu-item active" id="menu-dashboard">
+            <a href="#">
+              <div class="sidebar-menu-item-link-content">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                  <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                  <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                  <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                </svg>
+                <span>Dashboard</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="menu-label">Autonomous Agents</li>
+          <li class="sidebar-menu-item" id="menu-energy">
+            <a href="#">
+              <div class="sidebar-menu-item-link-content">
+                <svg viewBox="0 0 24 24">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>Energy Agent</span>
+              </div>
+              <span class="status-dot pulse" style="background-color: var(--color-accent); margin-right: 4px;" title="Active"></span>
+            </a>
+          </li>
+
+          <li class="sidebar-menu-item disabled">
+            <a href="#">
+              <div class="sidebar-menu-item-link-content">
+                <svg viewBox="0 0 24 24">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+                <span>Maintenance</span>
+              </div>
+              <span class="badge badge-neutral">Soon</span>
+            </a>
+          </li>
+
+          <li class="sidebar-menu-item disabled">
+            <a href="#">
+              <div class="sidebar-menu-item-link-content">
+                <svg viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Occupancy</span>
+              </div>
+              <span class="badge badge-neutral">Soon</span>
+            </a>
+          </li>
+
+          <li class="sidebar-menu-item disabled">
+            <a href="#">
+              <div class="sidebar-menu-item-link-content">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>Security</span>
+              </div>
+              <span class="badge badge-neutral">Soon</span>
+            </a>
+          </li>
+
+          <li class="menu-label">Analytics & Admin</li>
+          <li class="sidebar-menu-item" id="menu-reports">
+            <a href="#">
+              <div class="sidebar-menu-item-link-content">
+                <svg viewBox="0 0 24 24">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>Reports</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="sidebar-menu-item" id="menu-settings">
+            <a href="#">
+              <div class="sidebar-menu-item-link-content">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Settings</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-status-indicator">
+          <span class="status-dot pulse"></span>
+          <span class="font-medium text-sm text-muted">All Agents Operational</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Panel -->
+    <main class="main-panel">
+      <!-- Topbar Navigation -->
+      <header class="topbar">
+        <!-- Hamburger Menu and Search -->
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <button class="menu-toggle-btn" id="menu-toggle" aria-label="Toggle Navigation Sidebar">
+            <svg viewBox="0 0 24 24">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          
+          <div class="topbar-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="topbar-search-input" placeholder="Search facilities, recommendations, logs...">
+          </div>
+        </div>
+
+        <!-- Notification and User Profile -->
+        <div class="topbar-actions">
+          <button class="topbar-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <button class="topbar-btn" aria-label="Notifications" id="notifications-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <div class="topbar-btn-badge" id="notifications-badge">3</div>
+          </button>
+
+          <div class="user-profile">
+            <div class="avatar" title="Preethi Profile">P</div>
+            <div class="user-info">
+              <span class="user-name">Preethi</span>
+              <span class="user-role">Facility Operations Lead</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Container -->
+      <section class="dashboard-content">
+        <!-- Welcome Banner -->
+        <div class="welcome-section">
+          <div class="welcome-info">
+            <h1>Welcome back, Preethi</h1>
+            <p class="text-sm text-muted">Here is what the autonomous agent fleet has done for your building today.</p>
+          </div>
+          <div class="welcome-date" id="live-date">
+            Wednesday, July 8, 2026
+          </div>
+        </div>
+
+        <!-- 4 KPI Cards Grid -->
+        <div class="kpis-grid">
+          <!-- KPI 1: Energy Usage -->
+          <div class="card kpi-card">
+            <div class="kpi-title-row">
+              <span>Energy Usage (Daily)</span>
+              <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div>
+              <div class="kpi-value" id="kpi-energy">42,850 kWh</div>
+              <div class="kpi-trend trend-down">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+                <span>4.2% vs last week</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 2: Utility Cost -->
+          <div class="card kpi-card">
+            <div class="kpi-title-row">
+              <span>Utility Cost (M-T-D)</span>
+              <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <div>
+              <div class="kpi-value" id="kpi-cost">$5,142.00</div>
+              <div class="kpi-trend trend-down">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+                <span>3.8% vs last week</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 3: Carbon Emissions -->
+          <div class="card kpi-card">
+            <div class="kpi-title-row">
+              <span>Carbon Footprint</span>
+              <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            </div>
+            <div>
+              <div class="kpi-value" id="kpi-carbon">18.2 Tons CO₂</div>
+              <div class="kpi-trend trend-down">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+                <span>5.1% vs last week</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 4: Active Alerts -->
+          <div class="card kpi-card">
+            <div class="kpi-title-row">
+              <span>Active Alerts</span>
+              <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+            <div>
+              <div class="kpi-value" id="kpi-alerts">3 Active</div>
+              <div class="kpi-trend trend-neutral">
+                <span>1 Critical, 2 Warnings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Dashboard Grid -->
+        <div class="dashboard-grid">
+          
+          <!-- Column 1: Charts & Operations Logs -->
+          <div class="grid-column">
+            <!-- Energy Overview Card -->
+            <article class="card">
+              <div class="chart-card-header">
+                <h2 class="card-title">Energy Consumption Overview</h2>
+                <div class="chart-tabs">
+                  <button class="chart-tab active" id="tab-7d">Last 7 Days</button>
+                  <button class="chart-tab" id="tab-30d">Last 30 Days</button>
+                </div>
+              </div>
+              <div class="chart-container" id="chart-parent">
+                <!-- SVG Line Chart (100% responsive, managed via viewport box coordinates) -->
+                <svg class="chart-svg" viewBox="0 0 800 250" preserveAspectRatio="none">
+                  <defs>
+                    <!-- Gradient for the area fill below line -->
+                    <linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--color-accent)" stop-opacity="0.25"/>
+                      <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Horizontal Grid Lines -->
+                  <line class="chart-grid-line" x1="50" y1="40" x2="770" y2="40"></line>
+                  <line class="chart-grid-line" x1="50" y1="90" x2="770" y2="90"></line>
+                  <line class="chart-grid-line" x1="50" y1="140" x2="770" y2="140"></line>
+                  <line class="chart-grid-line" x1="50" y1="190" x2="770" y2="190"></line>
+
+                  <!-- Bottom Baseline Axis -->
+                  <line class="chart-axis-line" x1="50" y1="210" x2="770" y2="210"></line>
+
+                  <!-- Y-Axis Value Labels -->
+                  <text class="chart-axis-text" x="15" y="44">80k</text>
+                  <text class="chart-axis-text" x="15" y="94">60k</text>
+                  <text class="chart-axis-text" x="15" y="144">40k</text>
+                  <text class="chart-axis-text" x="15" y="194">20k</text>
+                  <text class="chart-axis-text" x="20" y="214">0</text>
+
+                  <!-- X-Axis Labels (Days of Week) -->
+                  <text class="chart-axis-text" x="80" y="230" text-anchor="middle">Mon</text>
+                  <text class="chart-axis-text" x="190" y="230" text-anchor="middle">Tue</text>
+                  <text class="chart-axis-text" x="300" y="230" text-anchor="middle">Wed</text>
+                  <text class="chart-axis-text" x="410" y="230" text-anchor="middle">Thu</text>
+                  <text class="chart-axis-text" x="520" y="230" text-anchor="middle">Fri</text>
+                  <text class="chart-axis-text" x="630" y="230" text-anchor="middle">Sat</text>
+                  <text class="chart-axis-text" x="740" y="230" text-anchor="middle">Sun</text>
+
+                  <!-- Energy Fill Gradient Shape -->
+                  <path class="chart-line-gradient" id="chart-area-path" d="M 80 140 L 190 115 L 300 135 L 410 80 L 520 100 L 630 160 L 740 148 L 740 210 L 80 210 Z"></path>
+
+                  <!-- Energy Consumption Stroke Line -->
+                  <path class="chart-line" id="chart-stroke-path" d="M 80 140 L 190 115 L 300 135 L 410 80 L 520 100 L 630 160 L 740 148"></path>
+
+                  <!-- Data Nodes -->
+                  <circle class="chart-node" cx="80" cy="140" data-value="48,200 kWh" data-day="Monday"></circle>
+                  <circle class="chart-node" cx="190" cy="115" data-value="52,400 kWh" data-day="Tuesday"></circle>
+                  <circle class="chart-node" cx="300" cy="135" data-value="49,100 kWh" data-day="Wednesday"></circle>
+                  <circle class="chart-node" cx="410" cy="80" data-value="61,800 kWh" data-day="Thursday"></circle>
+                  <circle class="chart-node" cx="520" cy="100" data-value="56,200 kWh" data-day="Friday"></circle>
+                  <circle class="chart-node" cx="630" cy="160" data-value="41,200 kWh" data-day="Saturday"></circle>
+                  <circle class="chart-node" cx="740" cy="148" data-value="44,800 kWh" data-day="Sunday"></circle>
+                </svg>
+
+                <!-- Tooltip Hover Node -->
+                <div class="chart-tooltip" id="chart-tooltip"></div>
+              </div>
+            </article>
+
+            <!-- Energy Agent Card & Terminal Console Output -->
+            <article class="card console-card">
+              <div class="console-header">
+                <div class="console-title-wrap">
+                  <div class="brand-icon" style="background-color: var(--color-accent); width: 28px; height: 28px;">
+                    <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                  </div>
+                  <h2 class="card-title">Energy Agent console</h2>
+                  <span class="badge badge-success">Active</span>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--color-text-secondary); display: flex; gap: var(--space-2);">
+                  <span>CPU: <strong>12%</strong></span>
+                  <span>RAM: <strong>1.4 GB</strong></span>
+                </div>
+              </div>
+              <div class="console-container" id="console-log">
+                <!-- Log entries added dynamically via script.js -->
+                <div class="console-line">
+                  <span class="console-time">[18:49:50]</span>
+                  <span class="console-agent">EnergyAgent:</span>
+                  <span class="console-text">Agent framework loaded. Spawning cognitive analysis loops...</span>
+                </div>
+                <div class="console-line">
+                  <span class="console-time">[18:49:52]</span>
+                  <span class="console-agent">EnergyAgent:</span>
+                  <span class="console-text">Link established with BACnet router [Gateway-09]. Scanning HVAC controllers...</span>
+                </div>
+                <div class="console-line">
+                  <span class="console-time">[18:49:55]</span>
+                  <span class="console-agent">EnergyAgent:</span>
+                  <span class="console-text highlight">Scan complete: 28 air handling units (AHUs) responsive. 3 chiller loops syncing.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Column 2: AI Recommendations, Facility Zones, and Alerts -->
+          <div class="grid-column">
+            <!-- AI Recommendations Card -->
+            <article class="card">
+              <div class="card-header">
+                <h2 class="card-title">AI Actions Recommended</h2>
+                <span class="badge badge-primary" id="actions-count">2 Available</span>
+              </div>
+              <div class="recommendations-list">
+                
+                <!-- Recommendation item 1 -->
+                <div class="recommendation-item" id="rec-hvac">
+                  <div class="recommendation-info">
+                    <div class="recommendation-icon">
+                      <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    </div>
+                    <div class="recommendation-details">
+                      <span class="recommendation-text">Set back Zone B temperature by 1.5°F during low occupancy.</span>
+                      <div class="recommendation-meta">
+                        <span class="recommendation-savings">Est. Savings: 140 kWh/d</span>
+                        <span>•</span>
+                        <span>HVAC Policy</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-secondary btn-sm" onclick="applyRecommendation('rec-hvac', 140, 18.2)">
+                    <span class="btn-loader"></span>
+                    <span class="btn-text-content">Apply</span>
+                  </button>
+                </div>
+
+                <!-- Recommendation item 2 -->
+                <div class="recommendation-item" id="rec-chiller">
+                  <div class="recommendation-info">
+                    <div class="recommendation-icon">
+                      <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div class="recommendation-details">
+                      <span class="recommendation-text">Optimize chiller staging logic for ambient wet-bulb forecast.</span>
+                      <div class="recommendation-meta">
+                        <span class="recommendation-savings">Est. Savings: 220 kWh/d</span>
+                        <span>•</span>
+                        <span>Chiller Loops</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-secondary btn-sm" onclick="applyRecommendation('rec-chiller', 220, 28.6)">
+                    <span class="btn-loader"></span>
+                    <span class="btn-text-content">Apply</span>
+                  </button>
+                </div>
+
+              </div>
+            </article>
+
+            <!-- Facility Status Card -->
+            <article class="card">
+              <div class="card-header">
+                <h2 class="card-title">Zone Health Overview</h2>
+                <span class="text-xs text-muted">Updated 2m ago</span>
+              </div>
+              <div class="facility-zones-list">
+                <!-- Zone A -->
+                <div class="zone-item">
+                  <div class="zone-header-wrap">
+                    <div class="zone-icon">
+                      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                    </div>
+                    <div class="zone-details">
+                      <span class="zone-name">Zone A (East Wing)</span>
+                      <span class="zone-sub">Offices & Finance</span>
+                    </div>
+                  </div>
+                  <div class="zone-stats">
+                    <span class="zone-temp">71.8°F</span>
+                    <span class="badge badge-success">Healthy</span>
+                  </div>
+                </div>
+
+                <!-- Zone B -->
+                <div class="zone-item">
+                  <div class="zone-header-wrap">
+                    <div class="zone-icon">
+                      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                    </div>
+                    <div class="zone-details">
+                      <span class="zone-name">Zone B (West Wing)</span>
+                      <span class="zone-sub">R&D Labs & Sales</span>
+                    </div>
+                  </div>
+                  <div class="zone-stats">
+                    <span class="zone-temp" id="zone-b-temp">74.2°F</span>
+                    <span class="badge badge-warning" id="zone-b-status">Optimizing</span>
+                  </div>
+                </div>
+
+                <!-- Zone C -->
+                <div class="zone-item">
+                  <div class="zone-header-wrap">
+                    <div class="zone-icon">
+                      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                    </div>
+                    <div class="zone-details">
+                      <span class="zone-name">Zone C (Data Center)</span>
+                      <span class="zone-sub">Main Server Racks</span>
+                    </div>
+                  </div>
+                  <div class="zone-stats">
+                    <span class="zone-temp">68.5°F</span>
+                    <span class="badge badge-danger">Attention</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Recent Alerts Card -->
+            <article class="card">
+              <div class="card-header">
+                <h2 class="card-title">Recent Alerts</h2>
+                <span class="text-xs text-muted" id="alerts-count-text">3 Active</span>
+              </div>
+              <div class="alerts-list" id="alerts-container">
+                <!-- Alert 1 -->
+                <div class="alert-item critical" id="alert-1">
+                  <div class="alert-item-body">
+                    <span class="alert-desc">Data Center CRAC unit secondary backup fan offline. High vibration detected.</span>
+                    <span class="alert-time">12 mins ago • Zone C Cooling</span>
+                  </div>
+                  <button class="alert-dismiss-btn" onclick="dismissAlert('alert-1')" aria-label="Dismiss Alert">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  </button>
+                </div>
+
+                <!-- Alert 2 -->
+                <div class="alert-item warning" id="alert-2">
+                  <div class="alert-item-body">
+                    <span class="alert-desc">Standby power usage in West Wing exceeded standard baselines for 2 consecutive hours.</span>
+                    <span class="alert-time">45 mins ago • Standby Load</span>
+                  </div>
+                  <button class="alert-dismiss-btn" onclick="dismissAlert('alert-2')" aria-label="Dismiss Alert">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  </button>
+                </div>
+
+                <!-- Alert 3 -->
+                <div class="alert-item info" id="alert-3">
+                  <div class="alert-item-body">
+                    <span class="alert-desc">Energy Agent triggered regular chiller optimization cycle. Baseline calibrated.</span>
+                    <span class="alert-time">2 hours ago • System Audit</span>
+                  </div>
+                  <button class="alert-dismiss-btn" onclick="dismissAlert('alert-3')" aria-label="Dismiss Alert">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <div style="margin-top: var(--space-3); margin-bottom: var(--space-2);">
+          <h2 class="text-lg font-bold" style="margin-bottom: var(--space-15); letter-spacing: -0.02em;">Agent Fleet Configuration</h2>
+          <!-- Compact Fleet Grid -->
+          <div class="fleet-grid">
+            <!-- Energy Card (Active) -->
+            <article class="card fleet-card">
+              <div class="fleet-card-header">
+                <div class="fleet-card-icon">
+                  <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <span class="badge badge-success">Active</span>
+              </div>
+              <div class="fleet-card-info">
+                <h3>Energy Agent</h3>
+                <p>Balances HVAC setbacks, chiller loading sequencing, and lighting grids to reduce demand charges.</p>
+              </div>
+              <div class="fleet-card-footer">
+                <span class="text-xs text-muted">Allocated CPU: 4 cores</span>
+                <span class="text-xs text-primary font-medium">Manage →</span>
+              </div>
+            </article>
+
+            <!-- Maintenance Card (Coming Soon) -->
+            <article class="card fleet-card disabled">
+              <div class="fleet-card-header">
+                <div class="fleet-card-icon">
+                  <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                </div>
+                <span class="badge badge-neutral">Coming Soon</span>
+              </div>
+              <div class="fleet-card-info">
+                <h3>Maintenance Agent</h3>
+                <p>Analyzes compressor vibration anomalies, predicts filter failures, and coordinates maintenance ticketing.</p>
+              </div>
+              <div class="fleet-card-footer">
+                <span class="text-xs text-muted">0/3 HVAC nodes synced</span>
+                <span class="text-xs text-muted font-medium">Configure</span>
+              </div>
+            </article>
+
+            <!-- Occupancy Card (Coming Soon) -->
+            <article class="card fleet-card disabled">
+              <div class="fleet-card-header">
+                <div class="fleet-card-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <span class="badge badge-neutral">Coming Soon</span>
+              </div>
+              <div class="fleet-card-info">
+                <h3>Occupancy Agent</h3>
+                <p>Monitors desk density, counts cafeteria occupancy via thermal sensors, and structures ventilation rates.</p>
+              </div>
+              <div class="fleet-card-footer">
+                <span class="text-xs text-muted">No sensors mapped</span>
+                <span class="text-xs text-muted font-medium">Configure</span>
+              </div>
+            </article>
+
+            <!-- Security Card (Coming Soon) -->
+            <article class="card fleet-card disabled">
+              <div class="fleet-card-header">
+                <div class="fleet-card-icon">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <span class="badge badge-neutral">Coming Soon</span>
+              </div>
+              <div class="fleet-card-info">
+                <h3>Security Agent</h3>
+                <p>Identifies open access doors, scans thermal boundaries, and alerts guards to unexpected entries during off-hours.</p>
+              </div>
+              <div class="fleet-card-footer">
+                <span class="text-xs text-muted">0 feeds active</span>
+                <span class="text-xs text-muted font-medium">Configure</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer style="text-align: center; padding: var(--space-2) var(--space-3); border-top: 1px solid var(--color-border); font-size: 0.8125rem; color: var(--color-text-secondary); background-color: var(--color-card); margin-top: auto;">
+        &copy; 2026 FacilityOps AI Technologies, Inc. Demo Submission.
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
